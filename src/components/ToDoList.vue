@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       newTask: "",
-      tasks: [],
+      tasks: this.loadTasks(),
     };
   },
   methods: {
@@ -26,13 +26,25 @@ export default {
       if (this.newTask.trim()) {
         this.tasks.push({ text: this.newTask, completed: false });
         this.newTask = "";
+        this.saveTasks();
       }
     },
     toggleTask(index) {
       this.tasks[index].completed = !this.tasks[index].completed;
+      this.saveTasks();
     },
     removeTask(index) {
       this.tasks.splice(index, 1);
+      this.saveTasks();
+    },
+
+    saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    },
+
+    loadTasks() {
+      const savedTasks = localStorage.getItem("tasks");
+      return savedTasks ? JSON.parse(savedTasks) : [];
     },
   },
 };
