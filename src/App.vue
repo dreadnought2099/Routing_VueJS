@@ -1,4 +1,10 @@
 <template>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
   <div>
     <center>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,6 +28,11 @@
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/about">About</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/to-do-list"
+                  >To Do List</router-link
+                >
               </li>
             </ul>
           </div>
